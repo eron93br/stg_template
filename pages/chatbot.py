@@ -10,10 +10,11 @@ import toml
 load_dotenv()
 
 # Checa se tem API Key
-gemini_api_key = os.getenv("GEMINI_API_KEY")
-if not gemini_api_key:
-    if "gemini_api_key" not in st.secrets or not st.secrets["GEMINI_API_KEY"]:
-        st.error("❌ API Key do Gemini não configurada. O chatbot está temporariamente indisponível.")
+if "gemini_api_key" not in st.secrets or not st.secrets["gemini_api_key"]:
+    st.error("❌ API Key do Gemini não configurada. O chatbot está temporariamente indisponível.")
+    st.stop()
+
+genai.configure(api_key=st.secrets["gemini_api_key"])
     
 # configura chaves para API gemini
 genai.configure(api_key=gemini_api_key)
