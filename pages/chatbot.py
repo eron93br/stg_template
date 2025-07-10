@@ -20,7 +20,7 @@ st.sidebar.image("images/logo.png", use_container_width=True, width=1)
 st.markdown("""
 <div style="text-align:center; margin-top: 2rem; margin-bottom: 0.2rem;">
     <h2> LLM GenAI School</h2>
-    <p style="color:#8b949e;">Tire suas sobre assistens de IA.</p>
+    <p style="color:#8b949e;">Tire suas duvidas sobre investimentos.</p>
 </div>
 """, unsafe_allow_html=True)
 
@@ -28,7 +28,7 @@ if "chat" not in st.session_state:
     model = genai.GenerativeModel('gemma-3-27b-it')
     st.session_state.chat = model.start_chat(history=[
         {"role": "user", "parts": [
-            "Você é um assistente para dúvidas sobre agentes de IA. Não responda mensagens fora desse contexto. Seja claro e sucinto."
+            "Você é um assistente sobre assuntos financeiros. Responda sobre dicas de investimentos, financas pessoais e crie resumo a partir de conteudo .csv. Não responda mensagens fora desse contexto. Seja claro e sucinto."
         ]},
         {"role": "model", "parts": [
             "Olá! Como posso ajudar você hoje?"
