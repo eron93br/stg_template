@@ -5,19 +5,14 @@ from src.utils import check_messages_count
 from src.ui import footer
 import os
 from dotenv import load_dotenv
-import toml
-# carrega configuracoes de um arquivo .env
-load_dotenv()
 
 # Checa se tem API Key
 if "gemini_api_key" not in st.secrets or not st.secrets["gemini_api_key"]:
     st.error("❌ API Key do Gemini não configurada. O chatbot está temporariamente indisponível.")
     st.stop()
-
-genai.configure(api_key=st.secrets["gemini_api_key"])
     
 # configura chaves para API gemini
-genai.configure(api_key=gemini_api_key)
+genai.configure(api_key=st.secrets["gemini_api_key"])
 
 st.set_page_config(page_title="Chatbot", page_icon="🤖", layout="centered")
 
